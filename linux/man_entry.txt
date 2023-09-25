@@ -1,0 +1,57 @@
+.TH GIT-SYNC 1 "August 2023" "User Manual for Git-Sync Service"
+.SH NAME
+git-sync \- A service for automated repository synchronization
+
+.SH SYNOPSIS
+.B git-sync
+[\fIadd\fR|\fIremove\fR|\fIpause\fR|\fIupdate\fR] [\fIoption\fR] [\fIparameter\fR]
+
+.SH DESCRIPTION
+The \fBgit-sync\fR service automates repository synchronization using a systemd service. It monitors the repositories specified in the \fBrepositories.txt\fR file and performs synchronization operations.
+
+.SH OPTIONS
+The following custom commands are available for \fBgit-sync\fR:
+
+.IP "\fBadd\fR \fIfile_path\fR"
+Adds the repository specified by \fIfile_path\fR to the list of repositories to be monitored.
+
+.IP "\fBremove\fR \fIfile_path\fR"
+Removes the repository specified by \fIfile_path\fR from the list of repositories to be monitored.
+
+.IP "\fBpause\fR \fInumber\fR"
+Pauses the execution of the service for the specified \fInumber\fR of seconds.
+
+.IP "\fBupdate\fR \fIparameter value\fR"
+Updates the configuration parameter \fIparameter\fR with the specified \fIvalue\fR. Supported parameters: \fBinterval\fR, \fBrepositories_list\fR.
+
+.SH EXAMPLES
+.B git-sync add /path/to/repo
+.br
+This command adds the repository located at \fI/path/to/repo\fR to the list of monitored repositories.
+
+.B git-sync remove /path/to/repo
+.br
+This command removes the repository located at \fI/path/to/repo\fR from the list of monitored repositories.
+
+.B git-sync pause 60
+.br
+This command pauses the execution of the service for 60 seconds.
+
+.B git-sync update interval 6
+.br
+This command updates the interval parameter to 6 seconds.
+
+.B git-sync update repositories_list /home/me/repos.txt
+.br
+This command updates the repositories_list parameter to /home/me/repos.txt.
+
+.SH FILES
+\fB/etc/systemd/system/automated_script.service\fR
+.br
+The systemd service file for the automated synchronization script.
+
+.SH AUTHOR
+Written by Your Name.
+
+.SH SEE ALSO
+\fBsystemd\fR(1), \fBsystemctl\fR(1), \fBbash\fR(1)

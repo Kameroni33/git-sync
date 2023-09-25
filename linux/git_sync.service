@@ -1,0 +1,12 @@
+[Unit]
+Description=Automated Git Sync Service
+After=network.target
+
+[Service]
+User=your_username
+WorkingDirectory=/home/kameron/Projects/git-sync/linux
+ExecStart=/home/kameron/Projects/git-sync/linux/git_sync.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

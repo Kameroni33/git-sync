@@ -1,0 +1,5 @@
+changes_log=logs/changes.log
+errors_log=logs/errors.log
+repo_list=repos.txt
+interval=5
+master_branch=main
