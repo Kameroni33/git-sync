@@ -105,10 +105,9 @@ while true; do
       # perform: git pull
       pull_result=$(git -C "$repo" pull 2>&1)
       if [ $? -ne 0 ]; then
-        
-        log "ERROR" "$pull_result"
-      else
-        log "INFO" "$pull_result"
+        if [[ $pull_result != *"branch is up to date"* ]]; then
+          log "ERROR" "$pull_result"
+        fi
       fi
       # perform: git push
       push_result=$(git -C "$repo" push 2>&1)
