@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 User=your_username
-WorkingDirectory=/home/kameron/Projects/git-sync/linux
-ExecStart=/home/kameron/Projects/git-sync/linux/git_sync.sh
+WorkingDirectory=/home/kameron/Projects/git-sync/src/linux
+ExecStart=/home/kameron/Projects/git-sync/src/linux/git_sync.sh
 Restart=always
 
 [Install]

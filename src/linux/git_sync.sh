@@ -52,6 +52,7 @@ else
 fi
 
 # process command line arguments
+if 
 while [ $# -gt 0 ]; do
   case "$1" in
     -h|--help)
