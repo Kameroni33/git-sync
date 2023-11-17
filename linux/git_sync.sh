@@ -91,8 +91,6 @@ while true; do
       add_result=$(git -C "$repo" add -A 2>&1)
       if [ $? -ne 0 ]; then
         log "ERROR" "$add_result"
-      else
-        log "INFO" "$add_result"
       fi
       # perform: git commit -m "message"
       message="Git-Sync at $(date '+%Y-%m-%d %H:%M:%S %Z')"
