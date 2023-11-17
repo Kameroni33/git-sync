@@ -5,6 +5,8 @@
 
 [Overview](#overview)  
 [Installation](#installation)  
+    [Windows](#windows)
+    [Linux](#linux)
 [Usages](#usages)  
 
 ## Overview
@@ -12,6 +14,8 @@
 Auto-sync functionality for GitHub
 
 ## Installation
+
+### Windows
 
 ### Linux
 
