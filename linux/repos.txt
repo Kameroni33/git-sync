@@ -1,1 +1,2 @@
-/home/kameron/Projects/obsidian-vault
+/home/kameron/Projects/git-sync
+/nowhere/nothing
