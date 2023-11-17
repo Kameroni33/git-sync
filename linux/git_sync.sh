@@ -98,14 +98,16 @@ while true; do
       if [ $? -ne 0 ]; then
         log "ERROR" "$commit_result"
       else
-        log "INFO" "$commit_result"
+        if [[ $commit_result != *"nothing to commit"* ]]; then
+          log "INFO" "$commit_result"
+        fi
       fi
       # perform: git pull
       pull_result=$(git -C "$repo" pull 2>&1)
       if [ $? -ne 0 ]; then
-        if [[ $pull_result != *"branch is up to date"* ]]; then
-          log "ERROR" "$pull_result"
-        fi
+        log "ERROR" "$pull_result"
+      else
+        if [[ $pull_result != **]]
       fi
       # perform: git push
       push_result=$(git -C "$repo" push 2>&1)
