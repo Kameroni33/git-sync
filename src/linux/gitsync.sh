@@ -65,6 +65,7 @@ if [ $# -ne 0 ]; then
         echo "  -h, --help     Display this help message"
         echo "  -u, --update   Update configuration. Usage: -u [CONFIG] [VALUE]"
         echo "  -a, --add      Add a new watched repo. Usage: -a [REPO-PATH]"
+        echo "  -l, --logs     View today's logs."
         echo "  -c, --clear    Remove all log files."
         exit 0
         ;;
@@ -82,6 +83,13 @@ if [ $# -ne 0 ]; then
           echo "$2" >> "$repo_list_file"
         fi
         shift 2
+        ;;
+      -l|--logs)
+        log_file="$log_folder/$(date '+%Y-%m-%d').log"
+        if [ -f "$log_file" ]; then
+          cat "$log_file"
+        fi
+        shift 1
         ;;
       -c|--clear)
         rm "$log_folder/*.log" || echo "Warning: unable to clear .log files"
