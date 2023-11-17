@@ -18,7 +18,7 @@ function log() {
   local message="$2"
   local date=$(date '+%Y-%m-%d')
   local time=$(date '+%H:%M:%S')
-  local log_file="$log_folder/${date}.log"
+  local log_file="$log_folder/$date.log"
   echo "| $time | $level | $message" >> "$log_file"
 }
 
