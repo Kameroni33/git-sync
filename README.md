@@ -9,7 +9,7 @@
 
 ## Overview
 
-Auto-sync functionality for GitHub
+Auto-sync functionality for Git repositories.
 
 ## Installation
 
