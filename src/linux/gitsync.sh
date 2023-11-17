@@ -66,6 +66,7 @@ if [ $# -ne 0 ]; then
         echo "  -u, --update   Update configuration. Usage: -u [CONFIG] [VALUE]"
         echo "  -a, --add      Add a new watched repo. Usage: -a [REPO-PATH]"
         echo "  -l, --logs     View today's logs."
+        echo "  -t, --tail     Tail today's log file."
         echo "  -c, --clear    Remove all log files."
         exit 0
         ;;
@@ -88,6 +89,13 @@ if [ $# -ne 0 ]; then
         log_file="$log_folder/$(date '+%Y-%m-%d').log"
         if [ -f "$log_file" ]; then
           cat "$log_file"
+        fi
+        shift 1
+        ;;
+      -t|--tail)
+        log_file="$log_folder/$(date '+%Y-%m-%d').log"
+        if [ -f "$log_file" ]; then
+          tail -f "$log_file"
         fi
         shift 1
         ;;
