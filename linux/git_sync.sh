@@ -105,6 +105,7 @@ while true; do
       # perform: git pull
       pull_result=$(git -C "$repo" pull 2>&1)
       if [ $? -ne 0 ]; then
+        
         log "ERROR" "$pull_result"
       else
         log "INFO" "$pull_result"
