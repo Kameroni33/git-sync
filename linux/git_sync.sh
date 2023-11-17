@@ -60,6 +60,7 @@ while [ $# -gt 0 ]; do
       echo "Options:"
       echo "  -h, --help     Display this help message"
       echo "  -u, --update   Update configuration. Usage: -u [CONFIG] [VALUE]"
+      echo "  -a, --add      Add a new watched repo. Usage: -a [REPO-PATH]"
       echo "  -c, --clear    Remove all log files."
       exit 0
       ;;
@@ -71,6 +72,12 @@ while [ $# -gt 0 ]; do
         echo "Error: Not enough arguments. Usage: -u [CONFIG] [VALUE]"
         exit 1
       fi
+      ;;
+    -a|--add)
+      if [[ $# -gt 1 ]]; then
+        echo "$2" >> "$repo_list_file"
+      fi
+      shift 2
       ;;
     -c|--clear)
       rm -f "$log_folder/*.log" || echo "Warning: unable to clear .log files"
