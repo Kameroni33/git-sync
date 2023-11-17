@@ -80,7 +80,7 @@ while [ $# -gt 0 ]; do
       shift 2
       ;;
     -c|--clear)
-      rm -r "$log_folder/*.log" || echo "Warning: unable to clear .log files"
+      rm -rf "$log_folder/*.log" || echo "Warning: unable to clear .log files"
       shift 1
       ;;
     *)
