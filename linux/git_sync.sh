@@ -73,7 +73,7 @@ while [ $# -gt 0 ]; do
       fi
       ;;
     -c|--clear)
-      rm -f "$log_folder/*.log"
+      rm -f "$log_folder/*.log" || echo "Warning: unable to clear .log files"
       shift 1
       ;;
     *)
@@ -96,25 +96,29 @@ while true; do
       message="Git-Sync at $(date '+%Y-%m-%d %H:%M:%S %Z')"
       commit_result=$(git -C "$repo" commit -m "$message" 2>&1)
       if [ $? -ne 0 ]; then
-        log "ERROR" "$commit_result"
-      else
         if [[ $commit_result != *"nothing to commit"* ]]; then
-          log "INFO" "$commit_result"
+          log "ERROR" "$commit_result"
         fi
+      else
+        log "INFO" "$commit_result"
       fi
       # perform: git pull
       pull_result=$(git -C "$repo" pull 2>&1)
       if [ $? -ne 0 ]; then
         log "ERROR" "$pull_result"
       else
-        if [[ $pull_result != **]]
+        if [[ $pull_result != *"up to date"* ]]; then
+          log "INFO" "$pull_result"
+        fi
       fi
       # perform: git push
       push_result=$(git -C "$repo" push 2>&1)
       if [ $? -ne 0 ]; then
         log "ERROR" "$push_result"
       else
-        log "INFO" "$push_result"
+        if [[ $push_result != *"up-to-date"* ]]; then
+          log "INFO" "$push_result"
+        fi
       fi
     else
       log "WARNING" "$repo is not a .git repository"
