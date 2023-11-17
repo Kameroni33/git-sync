@@ -5,8 +5,8 @@
 
 [Overview](#overview)  
 [Installation](#installation)  
-    [Windows](#windows)
-    [Linux](#linux)
+    [Windows](#windows)  
+    [Linux](#linux)  
 [Usages](#usages)  
 
 ## Overview
