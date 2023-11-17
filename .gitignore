@@ -4,3 +4,6 @@
 # Logs & other files
 *.log
 *.bak
+
+# User files
+repos.txt
