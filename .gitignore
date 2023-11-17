@@ -6,4 +6,5 @@
 *.bak
 
 # User files
-repos.txt
+src/config/repos.txt
+src/linux/gitsync.service

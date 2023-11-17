@@ -1,3 +1,0 @@
-/home/kameron/Projects/git-sync
-/nowhere/nothing
-/idk/not/a/repo

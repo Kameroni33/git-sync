@@ -1,0 +1,12 @@
+[Unit]
+Description=Automated git sync service
+After=network.target
+
+[Service]
+User=
+WorkingDirectory=
+ExecStart=
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

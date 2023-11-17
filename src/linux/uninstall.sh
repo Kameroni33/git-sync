@@ -1,16 +1,20 @@
 #!/bin/bash
 
+# Catch any errors that occur during uninstall
+set -e
+trap 'echo "Error: An error occurred during uninstall. Exiting."' ERR
+
 # Stop and disable the service
-sudo systemctl stop automated_script.service
-sudo systemctl disable automated_script.service
+sudo systemctl stop gitsync.service
+sudo systemctl disable gitsync.service
 
 # Remove the service file
-sudo rm /etc/systemd/system/automated_script.service
+sudo rm /etc/systemd/system/gitsync.service
 
-# Remove the script_control.sh file
-sudo rm /usr/local/bin/script_control.sh
+# Remove man page for service
+sudo rm /usr/share/man/man1/gitsync.1
 
-# Remove the man page
-sudo rm /usr/share/man/man1/git-sync.1.gz
+# Reload systemd
+sudo systemctl daemon-reload
 
 echo "Service uninstalled."
